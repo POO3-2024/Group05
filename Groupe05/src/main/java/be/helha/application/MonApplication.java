@@ -1,4 +1,4 @@
-package application;
+package be.helha.daoimpl;
 
 import javafx.application.Application;
 import javafx.application.Platform;

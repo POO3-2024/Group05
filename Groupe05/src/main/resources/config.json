@@ -1,3 +1,5 @@
 {
-  "databasePath": "src/main/resources/db/poo3.db"
+  "type" : "DB",
+  "daoArme" : "be.helha.poo3.projet.group03.daoimpl.ArmeDaoImpl",
+  "url": "jdbc:sqlite:C:\\sqlite\\db\\poo3.db"
 }

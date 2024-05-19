@@ -1,4 +1,7 @@
-package modele;
+package be.helha.domaine;
+
+
 
 public class ConfigManager {
+
 }
