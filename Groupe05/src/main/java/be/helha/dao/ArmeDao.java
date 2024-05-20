@@ -4,8 +4,8 @@ import be.helha.domaine.Arme;
 import java.util.List;
 
 public interface ArmeDao {
-    boolean ajouterArme(Arme arme);
-    boolean modifierArme(Arme arme);
-    List<Arme> listerArme();
-    boolean supprimerArme(int id);
+    void ajouterArme(Arme arme);
+    void mettreAJourArme(Arme arme);
+    List<Arme> ObtenirToutesLesArmes();
+    void supprimerArme(int id);
 }
