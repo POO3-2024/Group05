@@ -1,4 +1,4 @@
-// src/main/java/be/helha/domaine/ConfigManager.java
+
 package be.helha.domaine;
 
 import org.json.JSONObject;

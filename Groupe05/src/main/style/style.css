@@ -1,0 +1,9 @@
+.btnMainLA{
+    -fx-text-fill: #fff;
+    -fx-background-color: #555555;
+    -fx-border-color: #424242;
+}
+
+.titres{
+    -fx-text-fill: #FF0000;
+}
