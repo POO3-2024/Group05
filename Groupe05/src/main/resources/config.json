@@ -1,0 +1,5 @@
+{
+  "type" : "DB",
+  "daoArme" : "be.helha.daoimpl.ArmeDaoImpl",
+  "url": "jdbc:sqlite:C:\\sqlite\\db\\poo3.db"
+}
