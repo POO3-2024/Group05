@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.Controleur">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="be.helha.controleurs.ControleurArme">
    <children>
-      <Button fx:id="btnMainMenu" layoutX="188.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToMainMenu" text="Retourner au Menu" />
-      <Button layoutX="316.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToModifArmes" text="Modifier arme" />
-
-      <Label layoutX="264.0" layoutY="45.0" text="ListeArmes" />
-      <TableView layoutX="82.0" layoutY="100.0" prefHeight="200.0" prefWidth="451.0">
+      <TableView fx:id="tableArmes" layoutY="10.0" layoutX="10.0" prefHeight="200.0" prefWidth="580.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
-            <TableColumn prefWidth="75.0" text="C6" />
+            <TableColumn fx:id="columnId" text="ID" prefWidth="100.0"/>
+            <TableColumn fx:id="columnNom" text="Nom" prefWidth="200.0"/>
+            <TableColumn fx:id="columnDegats" text="Dégâts" prefWidth="280.0"/>
          </columns>
       </TableView>
-      <Button layoutX="82.0" layoutY="62.0" mnemonicParsing="false" onAction="#goToAddArme" text="+ Ajouter " />
+      <TextField fx:id="textNom" layoutY="220.0" layoutX="10.0" promptText="Nom"/>
+      <TextField fx:id="textDegats" layoutY="220.0" layoutX="200.0" promptText="Dégâts"/>
+      <Button layoutY="220.0" layoutX="400.0" text="Ajouter" onAction="#ajouterArme"/>
+      <Button layoutY="220.0" layoutX="480.0" text="Supprimer" onAction="#supprimerArme"/>
+      <Button layoutY="250.0" layoutX="400.0" text="Mettre à jour" onAction="#mettreAJourArme"/>
+      <Button layoutY="250.0" layoutX="480.0" text="Voir Détails" onAction="#voirDetailsArme"/>
    </children>
 </AnchorPane>

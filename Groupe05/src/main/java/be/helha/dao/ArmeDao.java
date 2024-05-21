@@ -1,12 +1,12 @@
 package be.helha.dao;
 
-import be.helha.domaine.arme.Arme;
+import be.helha.domaine.Arme;
 import java.util.List;
 
 public interface ArmeDao {
-    List<Arme> getAllArmes();
-    Arme getArmeById(int id);
-    void addArme(Arme arme);
-    void updateArme(Arme arme);
-    void deleteArme(int id);
+    void ajouterArme(Arme arme);
+    Arme obtenirArmeParId(int id);
+    List<Arme> obtenirToutesLesArmes();
+    void mettreAJourArme(Arme arme);
+    void supprimerArme(int id);
 }
