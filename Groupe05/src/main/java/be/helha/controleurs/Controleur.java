@@ -81,4 +81,10 @@ public class Controleur {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void suppressionPersonnage(ActionEvent event) {
+    }
+
+    public void suppressionArme(ActionEvent event) {
+    }
 }
