@@ -16,10 +16,10 @@
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
-            <TableColumn prefWidth="75.0" text="C6" />
+          <TableColumn prefWidth="75.0" text="C3" />
+          <TableColumn prefWidth="75.0" text="C4" />
+          <TableColumn prefWidth="75.0" text="C5" />
+          <TableColumn prefWidth="75.0" text="C6" />
         </columns>
       </TableView>
        <Button layoutX="82.0" layoutY="62.0" mnemonicParsing="false" onAction="#goToAddPersos" text="+ Ajouter " />
