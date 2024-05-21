@@ -42,4 +42,10 @@ public class Controleur {
         window.setScene(scene);
         window.show();
     }
+
+    public void suppressionPersonnage(ActionEvent event) {
+    }
+
+    public void suppressionArme(ActionEvent event) {
+    }
 }
