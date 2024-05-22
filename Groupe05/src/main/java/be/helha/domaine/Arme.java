@@ -40,10 +40,18 @@ public class Arme {
     }
 
     public int getDegats() {
+        if (degats > 100) {
+            throw new IllegalStateException("Les dégâts ne peuvent pas dépasser 100.");
+        }
         return degats;
     }
 
+
     public void setDegats(int degats) {
+        if (degats > 100) {
+            throw new IllegalArgumentException("Les dégâts ne peuvent pas dépasser 100.");
+        }
         this.degats = degats;
     }
+
 }
