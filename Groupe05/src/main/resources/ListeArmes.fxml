@@ -6,23 +6,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.Controleur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.ControleurArme">
    <children>
       <Button fx:id="btnMainMenu" layoutX="188.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToMainMenu" text="Retourner au Menu" />
       <Button layoutX="316.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToModifArmes" text="Modifier arme" />
-
       <Label layoutX="264.0" layoutY="45.0" text="ListeArmes" />
-      <TableView layoutX="82.0" layoutY="100.0" prefHeight="200.0" prefWidth="451.0">
+      <TableView fx:id="tableArmes" layoutX="82.0" layoutY="100.0" prefHeight="200.0" prefWidth="451.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
-            <TableColumn prefWidth="75.0" text="C6" />
+            <TableColumn fx:id="columnId" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="columnNom" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="columnDegats" prefWidth="75.0" text="Dégâts" />
          </columns>
       </TableView>
       <Button layoutX="82.0" layoutY="62.0" mnemonicParsing="false" onAction="#goToAddArme" text="+ Ajouter " />
-      <Button layoutX="461.0" layoutY="307.0" mnemonicParsing="false" onAction="#suppressionArme" text="Supprimer" />
+      <Button layoutX="461.0" layoutY="307.0" mnemonicParsing="false" onAction="#supprimerArme" text="Supprimer" />
    </children>
 </AnchorPane>
