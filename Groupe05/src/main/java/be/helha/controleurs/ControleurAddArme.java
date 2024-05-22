@@ -42,7 +42,7 @@ public class ControleurAddArme {
         try {
             degats = Integer.parseInt(typeArmeField.getText());
         } catch (NumberFormatException e) {
-            // Afficher un message d'erreur
+            System.out.println("Arme ajoutée avec succès");
             e.printStackTrace();
             return;
         }
@@ -50,10 +50,8 @@ public class ControleurAddArme {
         if (!nom.isEmpty()) {
             Arme arme = new Arme(0, nom, degats);
             armeDao.ajouterArme(arme);
-            // Afficher un message de succès ou rafraîchir la vue
             System.out.println("Arme ajoutée avec succès");
         } else {
-            // Afficher un message d'erreur
             System.err.println("Le nom de l'arme ne peut pas être vide");
         }
     }
