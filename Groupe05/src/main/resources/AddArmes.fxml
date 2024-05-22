@@ -5,14 +5,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.Controleur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.ControleurAddArme">
     <children>
-        <Button fx:id="btnMainMenu" layoutX="127.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToMainMenu" text="MainMenu" />
-        <Button layoutX="69.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToListeArmes" text="Retour" />
-
         <Label layoutX="248.0" layoutY="44.0" text="Ajouter Arme" />
-        <TextField layoutX="90.0" layoutY="113.0" prefHeight="25.0" prefWidth="404.0" />
+        <TextField fx:id="nomArmeField" layoutX="90.0" layoutY="113.0" prefHeight="25.0" prefWidth="404.0" />
         <Label layoutX="273.0" layoutY="86.0" text="Nom" />
-        <Button layoutX="255.0" layoutY="215.0" mnemonicParsing="false" text="Enregistrer" />
+        <TextField fx:id="typeArmeField" layoutX="90.0" layoutY="150.0" prefHeight="25.0" prefWidth="404.0" />
+        <Label layoutX="273.0" layoutY="130.0" text="Dégâts" />
+        <Button layoutX="255.0" layoutY="215.0" mnemonicParsing="false" text="Enregistrer" onAction="#ajouterArme" />
+        <Button layoutX="69.0" layoutY="343.0" mnemonicParsing="false" onAction="#goToListeArmes" text="Retour" />
     </children>
 </AnchorPane>
