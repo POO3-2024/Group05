@@ -53,7 +53,6 @@ public class ControleurUpdateArmes {
 
         tableArmes.setItems(armes);
 
-        // Debug: assurez-vous que tableArmes est bien initialisé
         System.out.println("TableView tableArmes: " + (tableArmes != null));
         System.out.println("Colonnes: " + tableArmes.getColumns().size());
     }
@@ -73,7 +72,6 @@ public class ControleurUpdateArmes {
             try {
                 selectedArme.setDegats(Integer.parseInt(textDegats.getText()));
             } catch (NumberFormatException e) {
-                // Afficher un message d'erreur
                 System.err.println("Entrée invalide pour les dégâts : " + textDegats.getText());
                 return;
             }
