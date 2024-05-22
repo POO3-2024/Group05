@@ -20,7 +20,6 @@ import java.io.IOException;
 public class ControleurAddArme {
     @FXML private TextField nomArmeField;
     @FXML private TextField typeArmeField;
-    @FXML private Button ajouterButton;
 
     private ArmeDao armeDao;
 
