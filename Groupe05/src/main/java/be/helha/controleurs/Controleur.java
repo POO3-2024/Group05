@@ -6,46 +6,72 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Contrôleur pour gérer la navigation entre les différentes scènes.
- */
 public class Controleur {
+    @FXML
+    private Button btnMainMenu;
 
     @FXML
-    private void goToMainMenu(ActionEvent event) throws IOException {
-        changeScene(event, "/fxml/MainMenu.fxml");
-    }
+    private TableView<?> tableArmes;
 
     @FXML
-    private void goToListeArmes(ActionEvent event) throws IOException {
-        changeScene(event, "/fxml/ListeArmes.fxml");
-    }
+    private TableColumn<?, ?> columnId;
 
     @FXML
-    private void goToAddArme(ActionEvent event) throws IOException {
-        changeScene(event, "/fxml/AddArmes.fxml");
-    }
+    private TableColumn<?, ?> columnNom;
 
     @FXML
-    private void goToModifArmes(ActionEvent event) throws IOException {
-        changeScene(event, "/fxml/ModifArmes.fxml");
+    private TableColumn<?, ?> columnDegats;
+
+
+    public Label lblMenuTitle;
+    @FXML
+    private Label lblCharactDashBoTitle;
+
+    @FXML
+    void goToListePersos(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/ListePersonnages.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
-    private void changeScene(ActionEvent event, String fxmlFile) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource(fxmlFile));
-        Scene scene = new Scene(parent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+    public void goToMainMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void goToModifPersonnages(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/ModifPersos.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void goToAddPersos(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/AddPersos.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void suppressionPersonnage(ActionEvent event) {
     }
 
-    public void suppressionArme(ActionEvent event) {
-    }
+
 }
