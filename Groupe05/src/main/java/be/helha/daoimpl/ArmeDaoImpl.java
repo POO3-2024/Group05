@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implémentation de l'interface ArmeDao pour les opérations CRUD sur les objets Arme.
+ */
 public class ArmeDaoImpl implements ArmeDao {
 
     private final Connection connection;
@@ -37,15 +40,20 @@ public class ArmeDaoImpl implements ArmeDao {
     }
 
     @Override
-    public void ajouterArme(Arme arme) {
-        String sql = "INSERT INTO armes (nom, degats) VALUES (?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, arme.getNom());
-            statement.setInt(2, arme.getDegats());
-            statement.executeUpdate();
+    public boolean ajouterArme(Arme arme) {
+        boolean ajoutReussi = false;
+        String sql = "INSERT INTO armes(nom, degats) VALUES (?, ?)";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, arme.getNom().trim());
+            ps.setInt(2, arme.getDegats());
+            int resultat = ps.executeUpdate();
+            if (resultat == 1) {
+                ajoutReussi = true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return ajoutReussi;
     }
 
     @Override
