@@ -66,21 +66,6 @@ public class ControleurArme {
             armes.remove(selectedArme);
         }
     }
-
-    /**
-     * Affiche les détails de l'arme sélectionnée.
-     *
-     * @param event l'événement de clic
-     */
-    @FXML
-    private void voirDetailsArme(ActionEvent event) {
-        Arme selectedArme = tableArmes.getSelectionModel().getSelectedItem();
-        if (selectedArme != null) {
-            textNom.setText(selectedArme.getNom());
-            textDegats.setText(String.valueOf(selectedArme.getDegats()));
-        }
-    }
-
     /**
      * Navigue vers le menu principal.
      *
