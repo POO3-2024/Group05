@@ -32,19 +32,19 @@ class ArmeDaoImplTest {
 
     @Test
     void testAjouterArme() {
-        Arme arme = new Arme(0, "Epée", 50);
+        Arme arme = new Arme(0, "Epee", 50);
         boolean ajoutReussi = armeDao.ajouterArme(arme);
         assertTrue(ajoutReussi);
 
         List<Arme> armes = armeDao.obtenirToutesLesArmes();
         assertEquals(1, armes.size());
-        assertEquals("Epée", armes.get(0).getNom());
+        assertEquals("Epee", armes.get(0).getNom());
         assertEquals(50, armes.get(0).getDegats());
     }
 
     @Test
     void testObtenirToutesLesArmes() {
-        Arme arme1 = new Arme(0, "Epée", 50);
+        Arme arme1 = new Arme(0, "Epee", 50);
         Arme arme2 = new Arme(0, "Hache", 75);
         armeDao.ajouterArme(arme1);
         armeDao.ajouterArme(arme2);
@@ -55,22 +55,22 @@ class ArmeDaoImplTest {
 
     @Test
     void testMettreAJourArme() {
-        Arme arme = new Arme(0, "Epée", 50);
+        Arme arme = new Arme(0, "Epee", 50);
         armeDao.ajouterArme(arme);
 
         Arme armeAjoutee = armeDao.obtenirToutesLesArmes().get(0);
-        armeAjoutee.setNom("Epée Légendaire");
+        armeAjoutee.setNom("Epee Legendaire");
         armeAjoutee.setDegats(100);
         armeDao.mettreAJourArme(armeAjoutee);
 
         Arme armeModifiee = armeDao.obtenirArmeParId(armeAjoutee.getId());
-        assertEquals("Epée Légendaire", armeModifiee.getNom());
+        assertEquals("Epee Legendaire", armeModifiee.getNom());
         assertEquals(100, armeModifiee.getDegats());
     }
 
     @Test
     void testSupprimerArme() {
-        Arme arme = new Arme(0, "Epée", 50);
+        Arme arme = new Arme(0, "Epee", 50);
         armeDao.ajouterArme(arme);
 
         Arme armeAjoutee = armeDao.obtenirToutesLesArmes().get(0);
