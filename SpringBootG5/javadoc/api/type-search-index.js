@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"be.helha.api","l":"ArmeApi"},{"p":"be.helha.api","l":"HttpRequestExample"},{"p":"be.helha.api","l":"PersonnageApi"}];updateSearchResults();

@@ -10,6 +10,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Les deux méthodes pour récupérer les armes
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class armeController {
@@ -24,8 +28,8 @@ public class armeController {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String nom = resultSet.getString("nom");
-                int degats = resultSet.getInt("degats");
-                armes.add(new Arme(id, nom, degats));
+                int degat = resultSet.getInt("degat");
+                armes.add(new Arme(id, nom, degat));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,8 +48,8 @@ public class armeController {
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     String nom = resultSet.getString("nom");
-                    int degats = resultSet.getInt("degats");
-                    arme = new Arme(id, nom, degats);
+                    int degat = resultSet.getInt("degat");
+                    arme = new Arme(id, nom, degat);
                 }
             }
         } catch (SQLException e) {

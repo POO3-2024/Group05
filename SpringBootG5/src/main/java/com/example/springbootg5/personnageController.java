@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * class qui se charge de renvoyer tout les personnages et un personnage by id
+ */
 @RestController
 @RequestMapping("/api")
 public class personnageController {

@@ -12,5 +12,15 @@ public class HttpRequestExample {
         String armeResponse = ArmeApi.getArmeById(id);
         System.out.println("Arme avec l'ID " + id + ":");
         System.out.println(armeResponse);
+
+        String allPersonnagesResponse = PersonnageApi.getPersonnages();
+        System.out.println("Tous les personnages:");
+        System.out.println(allPersonnagesResponse);
+
+        // Appel de la méthode getPersonnageById de la classe PersonnageApi
+        String personnageResponse = PersonnageApi.getPersonnageById(id);
+        System.out.println("Personnage avec l'ID " + id + ":");
+        System.out.println(personnageResponse);
+
     }
 }
