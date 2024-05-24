@@ -35,7 +35,6 @@ public class Controleur {
     @FXML
     private Label lblCharactDashBoTitle;
 
-    @FXML
     public void goToListePersos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/ListePersonnages.fxml"));
         Scene scene = new Scene(root);
@@ -43,6 +42,15 @@ public class Controleur {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void goToListeArmes(ActionEvent event) throws IOException {
+        System.out.println("goToListeArmes called");
+        Parent root = FXMLLoader.load(getClass().getResource("/ListeArmes.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void goToMainMenu(ActionEvent event) throws IOException {
