@@ -36,7 +36,7 @@ public class Controleur {
     private Label lblCharactDashBoTitle;
 
     @FXML
-    void goToListePersos(ActionEvent event) throws IOException {
+    public void goToListePersos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/ListePersonnages.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
