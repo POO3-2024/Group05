@@ -1,0 +1,7 @@
+{
+  "type" : "DB",
+  "daos" : ["be.helha.daoimpl.PersonnageDaoImpl"],
+  "url"  : "jdbc:sqlite:C:\\sqlite\\db\\poo3Test.db"
+}
+
+
