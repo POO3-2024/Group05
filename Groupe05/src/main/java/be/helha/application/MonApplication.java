@@ -6,10 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * Classe principale de l'application JavaFX.
- * Auteur : LAMHAMDI Houssam Eddine
- */
+
 public class MonApplication extends Application {
 	@Override
 	public void start(Stage stage) {

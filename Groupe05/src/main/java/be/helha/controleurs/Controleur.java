@@ -12,10 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Contrôleur principal pour la navigation entre les vues.
- * Auteur : LAMHAMDI Houssam Eddine
- */
+
 public class Controleur {
     @FXML
     private Button btnMainMenu;
