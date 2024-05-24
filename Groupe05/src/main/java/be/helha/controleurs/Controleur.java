@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class Controleur {
     @FXML
     private Button btnMainMenu;
@@ -35,6 +36,11 @@ public class Controleur {
     @FXML
     private Label lblCharactDashBoTitle;
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void goToListePersos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/ListePersonnages.fxml"));
         Scene scene = new Scene(root);
@@ -44,6 +50,11 @@ public class Controleur {
 
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void goToListeArmes(ActionEvent event) throws IOException {
         System.out.println("goToListeArmes called");
         Parent root = FXMLLoader.load(getClass().getResource("/ListeArmes.fxml"));
@@ -53,6 +64,11 @@ public class Controleur {
         stage.show();
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void goToMainMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
         Scene scene = new Scene(root);
@@ -61,6 +77,11 @@ public class Controleur {
         stage.show();
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void goToModifPersonnages(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("/ModifPersos.fxml"));
         Scene scene = new Scene(root);
@@ -70,6 +91,11 @@ public class Controleur {
 
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     public void goToAddPersos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/AddPersos.fxml"));
         Scene scene = new Scene(root);
