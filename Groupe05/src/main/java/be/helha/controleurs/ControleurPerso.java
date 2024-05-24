@@ -8,19 +8,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class Controleur {
+public class ControleurPerso implements Initializable {
 
     @FXML
     private TextField txtNom;
@@ -41,17 +45,10 @@ public class Controleur {
 
     private PersonnageDao personnageDao;
 
-    public Controleur() {
-        this.personnageDao = (PersonnageDao) DaoFactory.getInstance().getDaoImpl(PersonnageDao.class);
 
-    }
-
-
-
-    private void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // Configuration des colonnes du TableView
-        List<Personnage> personnages = personnageDao.listerPersonnages();
-        ObservableList<Personnage> personnageList = FXCollections.observableArrayList(personnages);
 
         columnId.setCellValueFactory(new PropertyValueFactory<Personnage, Integer>("id"));
 
@@ -60,33 +57,32 @@ public class Controleur {
         columnManna.setCellValueFactory(new PropertyValueFactory<>("manna"));
 
         System.out.println(columnId);
+listerPersonnage();
 
-        // Chargement initial des personnages
-        tableView.setItems(personnageList);
     }
 
     private void listerPersonnage() {
+        this.personnageDao = (PersonnageDao) DaoFactory.getInstance().getDaoImpl(PersonnageDao.class);
+
         List<Personnage> personnages = personnageDao.listerPersonnages();
         ObservableList<Personnage> personnageList = FXCollections.observableArrayList(personnages);
         System.out.println(" AHHHHHHHHHHHHHHHHHHH"+ personnageList);
+        // Chargement initial des personnages
+        tableView.setItems(personnageList);
 
     }
 
-    private void showErrorMessage(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+    /**
+     * Gère l'ajout d'un nouveau personnage.
+     *
+     * @param event L'événement d'action déclenché par l'utilisateur.
+     * @throws IOException En cas d'erreur de navigation.
+     */
+    @FXML
+    private void ajouterPersonnage(ActionEvent event) throws IOException {
+        navigateTo(event, "/AddPersos.fxml");
     }
 
-    private void showInfoMessage(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 
     @FXML
     private void goToMainMenu(ActionEvent event) throws IOException {
@@ -100,26 +96,6 @@ public class Controleur {
 
     }
 
-    @FXML
-    private void goToListeArmes(ActionEvent event) throws IOException {
-        navigateTo(event, "/ListeArmes.fxml");
-    }
-
-    @FXML
-    private void goToModifPersonnages(ActionEvent event) throws IOException {
-        navigateTo(event, "/ModifPersos.fxml");
-    }
-
-    @FXML
-    private void goToModifArmes(ActionEvent event) throws IOException {
-        navigateTo(event, "/ModifArmes.fxml");
-    }
-
-    @FXML
-    private void goToAddArme(ActionEvent event) throws IOException {
-        navigateTo(event, "/AddArmes.fxml");
-    }
-
     private void navigateTo(ActionEvent event, String fxmlFile) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
         Scene scene = new Scene(root);
@@ -127,14 +103,8 @@ public class Controleur {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    private void suppressionPersonnage(ActionEvent event) {
-        // Implémenter la logique de suppression de personnage
-    }
-
-    @FXML
-    private void suppressionArme(ActionEvent event) {
-        // Implémenter la logique de suppression d'arme
-    }
 }
+
+
+
+
