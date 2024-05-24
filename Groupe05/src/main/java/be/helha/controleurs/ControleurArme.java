@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -21,6 +23,7 @@ import java.io.IOException;
 
 /**
  * Contrôleur pour gérer les armes.
+ * Auteur : LAMHAMDI Houssam Eddine
  */
 public class ControleurArme {
     @FXML
@@ -42,6 +45,7 @@ public class ControleurArme {
     /**
      * Initialisation du contrôleur.
      */
+    @FXML
     public void initialize() {
         armeDao = DaoFactory.getArmeDao();
         armes = FXCollections.observableArrayList(armeDao.obtenirToutesLesArmes());
@@ -54,7 +58,7 @@ public class ControleurArme {
     }
 
     /**
-     * Supprime l'arme sélectionnée.
+     * Fonction pour supprimer une arme
      *
      * @param event l'événement de clic
      */
@@ -64,16 +68,30 @@ public class ControleurArme {
         if (selectedArme != null) {
             armeDao.supprimerArme(selectedArme.getId());
             armes.remove(selectedArme);
+
+            // Afficher une boîte de dialogue de confirmation
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Succes");
+            alert.setHeaderText(null);
+            alert.setContentText("Arme supprimee avec succes.");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectioner une arme.");
+            alert.showAndWait();
         }
     }
+
     /**
-     * Navigue vers le menu principal.
-     *
+     * Retour au menu principal
      * @param event l'événement de clic
      * @throws IOException si une erreur d'I/O survient
      */
     @FXML
     private void goToMainMenu(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour le menu principal
         Parent root = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -82,13 +100,13 @@ public class ControleurArme {
     }
 
     /**
-     * Navigue vers l'interface d'ajout d'arme.
-     *
+     * Aller à l'ajout d'une arme
      * @param event l'événement de clic
      * @throws IOException si une erreur d'I/O survient
      */
     @FXML
     private void goToAddArme(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour l'ajout des armes
         Parent root = FXMLLoader.load(getClass().getResource("/AddArmes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -97,13 +115,13 @@ public class ControleurArme {
     }
 
     /**
-     * Navigue vers l'interface de modification d'arme.
-     *
+     * Aller à la modification d'une arme
      * @param event l'événement de clic
      * @throws IOException si une erreur d'I/O survient
      */
     @FXML
-    void goToModifArmes(ActionEvent event) throws IOException {
+    private void goToModifArmes(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour la modification des armes
         Parent root = FXMLLoader.load(getClass().getResource("/ModifArmes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

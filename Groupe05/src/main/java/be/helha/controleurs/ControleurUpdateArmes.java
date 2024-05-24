@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,7 +22,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Contrôleur pour modifier une arme.
+ * Contrôleur pour mettre à jour les armes.
+ * Auteur : LAMHAMDI Houssam Eddine
  */
 public class ControleurUpdateArmes {
     @FXML
@@ -52,44 +55,84 @@ public class ControleurUpdateArmes {
         columnDegats.setCellValueFactory(new PropertyValueFactory<>("degats"));
 
         tableArmes.setItems(armes);
-
-        System.out.println("TableView tableArmes: " + (tableArmes != null));
-        System.out.println("Colonnes: " + tableArmes.getColumns().size());
     }
 
     /**
      * Met à jour l'arme sélectionnée.
-     *
      * @param event l'événement de clic
      */
     @FXML
     private void mettreAJourArme(ActionEvent event) {
-        System.out.println("Méthode mettreAJourArme appelée.");
         Arme selectedArme = tableArmes.getSelectionModel().getSelectedItem();
-        System.out.println("Selected Arme: " + (selectedArme != null));
         if (selectedArme != null) {
-            selectedArme.setNom(textNom.getText());
-            try {
-                selectedArme.setDegats(Integer.parseInt(textDegats.getText()));
-            } catch (NumberFormatException e) {
-                System.err.println("Entrée invalide pour les dégâts : " + textDegats.getText());
+            String nom = textNom.getText();
+            if (nom.isEmpty()) {
+                // Afficher un message d'erreur si le nom est vide
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("Le nom de l'arme ne peut pas etre vide.");
+                alert.showAndWait();
                 return;
             }
-            armeDao.mettreAJourArme(selectedArme);
-            tableArmes.refresh();
+            selectedArme.setNom(nom);
+            try {
+                int degats = Integer.parseInt(textDegats.getText());
+                if (degats > 100) {
+                    // Afficher un message d'erreur si les dégâts dépassent 100
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Erreur");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Les degats ne peuvent pas depasser 100.");
+                    alert.showAndWait();
+                    return;
+                }
+                selectedArme.setDegats(degats);
+            } catch (NumberFormatException e) {
+                // Afficher un message d'erreur si les dégâts ne sont pas un nombre
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("Le champ degats doit etre rempli et etre un nombre entier.");
+                alert.showAndWait();
+                return;
+            }
+            try {
+                armeDao.mettreAJourArme(selectedArme);
+                tableArmes.refresh();
+
+                // Afficher une boîte de dialogue de confirmation
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Succes");
+                alert.setHeaderText(null);
+                alert.setContentText("L'arme a ete modifiee avec succes.");
+                alert.showAndWait();
+            } catch (IllegalArgumentException e) {
+                // Afficher un message d'erreur pour les validations
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
         } else {
-            System.err.println("Aucune arme sélectionnée pour la mise à jour.");
+            // Afficher un message d'erreur si aucune arme n'est sélectionnée
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucune arme selectionnee pour la modification.");
+            alert.showAndWait();
         }
     }
 
     /**
-     * Navigue vers la liste des armes.
-     *
+     * Aller à la liste des armes
      * @param event l'événement de clic
      * @throws IOException si une erreur d'I/O survient
      */
     @FXML
     private void goToListeArmes(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour la liste des armes
         Parent root = FXMLLoader.load(getClass().getResource("/ListeArmes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
