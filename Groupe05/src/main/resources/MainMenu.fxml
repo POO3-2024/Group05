@@ -6,9 +6,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="be.helha.controleurs.Controleur">
    <children>
-      <Button  layoutX="218.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToListeArmes" prefHeight="181.0" prefWidth="166.0" text="Armes" />
-      <Button  layoutX="403.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToListePersos" prefHeight="181.0" prefWidth="166.0" text="Personnages" />
-      <Label  layoutX="270.0" layoutY="58.0" text="Main Menu" />
-      <Button layoutX="29.0" layoutY="116.0" mnemonicParsing="false" prefHeight="181.0" prefWidth="166.0" text="?" />
+      <Button layoutX="134.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToListeArmes" prefHeight="181.0" prefWidth="166.0" text="Armes" />
+      <Button layoutX="316.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToListePersos" prefHeight="181.0" prefWidth="166.0" text="Personnages" />
+      <Label layoutX="270.0" layoutY="58.0" text="Main Menu" />
    </children>
 </AnchorPane>
