@@ -9,12 +9,13 @@ public class Personnage {
     private int manna;
 
     public Personnage(String name, int pv, int manna) {
+
         this.name = name;
         this.pv = pv;
         this.manna = manna;
     }
 
-    public Personnage(Personnage personnage){
+    public Personnage(Personnage personnage) {
         this.id = personnage.id;
         this.name = personnage.name;
         this.pv = personnage.pv;
@@ -68,7 +69,7 @@ public class Personnage {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Personnage that = (Personnage) o;
-        return id == that.id && pv == that.pv && manna == that.manna && Objects.equals(name, that.name);
+        return pv == that.pv && manna == that.manna && Objects.equals(name, that.name);
     }
 
     @Override
@@ -76,4 +77,3 @@ public class Personnage {
         return Objects.hash(id, name, pv, manna);
     }
 }
-
