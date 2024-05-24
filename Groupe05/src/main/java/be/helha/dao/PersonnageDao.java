@@ -11,5 +11,4 @@ public interface PersonnageDao extends Dao {
     List<Personnage> listerPersonnages();
     boolean supprimerPersonnage(int id);
     boolean modifierPersonnage(Personnage personnage);
-
 }
