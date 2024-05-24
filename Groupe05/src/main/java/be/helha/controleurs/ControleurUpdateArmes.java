@@ -124,7 +124,6 @@ public class ControleurUpdateArmes {
             alert.showAndWait();
         }
     }
-
     /**
      * Aller à la liste des armes
      * @param event l'événement de clic
