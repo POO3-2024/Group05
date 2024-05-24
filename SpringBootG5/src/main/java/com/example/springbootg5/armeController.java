@@ -2,6 +2,7 @@ package com.example.springbootg5;
 
 import domaine.Arme;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,26 @@ public class armeController {
             e.printStackTrace();
         }
         return armes;
+    }
+
+
+    @GetMapping("arme/{id}")
+    public Arme obtenirArmeParId(@PathVariable int id) {
+        Arme arme = null;
+        String sql = "SELECT * FROM armes WHERE id = ?";
+        try (Connection connection = DaoFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String nom = resultSet.getString("nom");
+                    int degats = resultSet.getInt("degats");
+                    arme = new Arme(id, nom, degats);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return arme;
     }
 }
