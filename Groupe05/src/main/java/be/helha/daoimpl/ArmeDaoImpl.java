@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Implémentation de l'interface ArmeDao pour les opérations CRUD sur les objets Arme.
+ * Auteur : LAMHAMDI Houssam Eddine
  */
 public class ArmeDaoImpl implements ArmeDao {
 

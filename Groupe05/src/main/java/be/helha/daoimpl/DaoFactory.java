@@ -7,7 +7,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * Classe fabrique pour obtenir les instances DAO.
+ * Classe pour obtenir les instances DAO.
+ * Auteur : LAMHAMDI Houssam Eddine
  */
 public class DaoFactory {
     private static ArmeDao armeDaoInstance;
@@ -25,7 +26,7 @@ public class DaoFactory {
     }
 
     /**
-     * Établit une connexion à la base de données SQLite.
+     * Fonction pour obtenir la connexion à la base de données
      *
      * @return une connexion à la base de données
      */

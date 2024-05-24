@@ -8,8 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,43 +18,39 @@ public class Controleur {
     private Button btnMainMenu;
 
     @FXML
-    private TableView<?> tableArmes;
+    private Label lblMenuTitle;
 
-    @FXML
-    private TableColumn<?, ?> columnId;
-
-    @FXML
-    private TableColumn<?, ?> columnNom;
-
-    @FXML
-    private TableColumn<?, ?> columnDegats;
-
-
-    public Label lblMenuTitle;
     @FXML
     private Label lblCharactDashBoTitle;
 
     /**
+     * Aller à la liste des personnages
      *
-     * @param event
-     * @throws IOException
+     * @param event l'événement de clic
+     * @throws IOException si une erreur d'I/O survient
      */
+    @FXML
     public void goToListePersos(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour la liste des personnages
         Parent root = FXMLLoader.load(getClass().getResource("/ListePersonnages.fxml"));
+        // Créer une nouvelle scène
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        // Obtenir la fenêtre actuelle
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // Définir la nouvelle scène pour la fenêtre
         stage.setScene(scene);
+        // Afficher la nouvelle scène
         stage.show();
-
     }
 
     /**
+     * Aller à la liste des armes
      *
-     * @param event
-     * @throws IOException
+     * @param event l'événement de clic
+     * @throws IOException si une erreur d'I/O survient
      */
+    @FXML
     public void goToListeArmes(ActionEvent event) throws IOException {
-        System.out.println("goToListeArmes called");
         Parent root = FXMLLoader.load(getClass().getResource("/ListeArmes.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -65,47 +59,49 @@ public class Controleur {
     }
 
     /**
+     * Retour au menu principal
      *
-     * @param event
-     * @throws IOException
+     * @param event l'événement de clic
+     * @throws IOException si une erreur d'I/O survient
      */
+    @FXML
     public void goToMainMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/mainMenu.fxml"));
+        // Charger le fichier FXML pour le menu principal
+        Parent root = FXMLLoader.load(getClass().getResource("/MainMenu.fxml"));
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
 
     /**
+     * Aller à la modification des personnages
      *
-     * @param event
-     * @throws IOException
+     * @param event l'événement de clic
+     * @throws IOException si une erreur d'I/O survient
      */
-    public void goToModifPersonnages(ActionEvent event) throws IOException{
+    @FXML
+    public void goToModifPersonnages(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour la modification des personnages
         Parent root = FXMLLoader.load(getClass().getResource("/ModifPersos.fxml"));
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
     }
 
     /**
-     *
-     * @param event
-     * @throws IOException
+     * Aller à l'ajout des personnages
+     * @param event l'événement de clic
+     * @throws IOException si une erreur d'I/O survient
      */
+    @FXML
     public void goToAddPersos(ActionEvent event) throws IOException {
+        // Charger le fichier FXML pour l'ajout des personnages
         Parent root = FXMLLoader.load(getClass().getResource("/AddPersos.fxml"));
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()) .getScene() .getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
-
-    public void suppressionPersonnage(ActionEvent event) {
-    }
-
-
 }

@@ -2,6 +2,7 @@ package be.helha.domaine;
 
 /**
  * Classe représentant une Arme.
+ * Auteur : LAMHAMDI Houssam Eddine
  */
 public class Arme {
     private int id;
@@ -40,17 +41,10 @@ public class Arme {
     }
 
     public int getDegats() {
-        if (degats > 100) {
-            throw new IllegalStateException("Les dégâts ne peuvent pas dépasser 100.");
-        }
         return degats;
     }
 
-
     public void setDegats(int degats) {
-        if (degats > 100) {
-            throw new IllegalArgumentException("Les dégâts ne peuvent pas dépasser 100.");
-        }
         this.degats = degats;
     }
 }
